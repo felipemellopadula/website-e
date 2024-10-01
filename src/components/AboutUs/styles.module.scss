@@ -1,0 +1,116 @@
+.aboutSection {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  background-color: var(--grey-2);
+  position: relative;
+  overflow: visible;
+
+  .item1 {
+    grid-column: 1 / 4;
+    grid-row: 1 / 10;
+    padding: 0.5rem 0;
+    pointer-events: none;
+    background-color: initial;
+    transform: none;
+    color: inherit;
+    z-index: 0;
+    font-family: var(--font-family1);
+    font-weight: 200;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .item2 {
+    grid-column: 4 / 9;
+    grid-row: 1 / 2;
+    font-family: var(--font-family1);
+    font-weight: 300;
+    font-size: 3.5rem;
+    color: var(--grey-4);
+    padding: 0.5rem 0;
+    z-index: 1;
+  }
+
+  .item3,
+  .item4,
+  .item5,
+  .item6,
+  .item7,
+  .item8,
+  .item9,
+  .item10 {
+    grid-column: 4 / 9;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-family1);
+    font-weight: 700;
+    font-size: 2.5rem;
+    border-bottom: 0.1rem solid #777777;
+    padding: 0.5rem 0;
+    z-index: 1;
+    position: relative;
+
+    &:hover {
+      transform: scale(1.02);
+      color: #d3d3d3;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .videoContainer {
+      position: absolute;
+      left: -320px; // Ajuste este valor conforme necessário para posicionar o vídeo corretamente
+      top: 50%;
+      transform: translateY(-50%);
+      width: 300px;
+      height: 200px;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .item3 {
+    grid-row: 3 / 4;
+  }
+  .item4 {
+    grid-row: 4 / 5;
+  }
+  .item5 {
+    grid-row: 5 / 6;
+  }
+  .item6 {
+    grid-row: 6 / 7;
+  }
+  .item7 {
+    grid-row: 7 / 8;
+  }
+  .item8 {
+    grid-row: 8 / 9;
+  }
+  .item9 {
+    grid-row: 9 / 10;
+  }
+  .item10 {
+    grid-row: 10 / 11;
+  }
+}

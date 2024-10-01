@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --color-brand-1: #364fc7;
+  --grey-1: #1d1d1d;
+  --grey-2: #f5f5f7;
+  --grey-3: #b7b7b7;
+  --grey-4: #b1b1b1;
+  --grey-5: #e9ecef;
+  --grey-6: #e9ecef;
+  --mode: #ffffff;
+  --font-family1: "Inter", system-ui;
+  --font-family2: "Barlow Condensed", system-ui;
+  --font-family3: "Roboto", sans-serif;
+  --font-weight1: 100;
+  --font-weight2: 200;
+  --font-weight3: 300;
+  --font-weight4: 400;
+  --font-weight5: 500;
+  --font-weight6: 600;
+  --font-weight7: 700;
+  --font-weight8: 800;
+  --font-weight9: 900;
+}
+
+body {
+  background-color: var(--mode);
+}
