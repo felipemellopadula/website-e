@@ -1,19 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../../assets/LogoUnity3dB.png";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null); // Estado para o item selecionado
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 500);
+      if (window.innerWidth > 500) {
+        setIsOpen(false); // Fecha o menu se a tela for redimensionada para maior que 500px
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Limpa o listener quando o componente é desmontado
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleToggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleMenuItemClick = (index: number | React.SetStateAction<null>) => {
-    setSelectedItem(index); // Define o item clicado como selecionado
-    setIsOpen(false); // Fecha o menu ao clicar em um item
+  const handleMenuItemClick = (index: any) => {
+    setSelectedItem(index);
+    if (isMobile) {
+      setIsOpen(false);
+    }
   };
 
   return (
@@ -21,10 +40,18 @@ export const Header = () => {
       <div className={styles.logo}>
         <img src={Logo} alt="Logo Unity" />
       </div>
-      <div className={styles.burgerIcon} onClick={handleToggleMenu}>
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </div>
-      <nav className={`${styles.nav} ${isOpen ? styles.navOpen : ""}`}>
+
+      {isMobile && (
+        <div className={styles.burgerIcon} onClick={handleToggleMenu}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </div>
+      )}
+
+      <nav
+        className={`${styles.nav} ${isMobile && isOpen ? styles.navOpen : ""} ${
+          !isMobile ? styles.navDesktop : ""
+        }`}
+      >
         <ul>
           {["TRABALHOS", "AGÊNCIA", "CONTATO"].map((item, index) => (
             <li

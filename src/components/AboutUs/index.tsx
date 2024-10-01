@@ -5,11 +5,7 @@ export const AboutUs = () => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
 
   const items = [
-    {
-      id: 3,
-      title: "SOCIAL MEDIA",
-      videoSrc: "/videos/social_media.mp4",
-    },
+    { id: 3, title: "SOCIAL MEDIA", videoSrc: "/videos/social_media.mp4" },
     {
       id: 4,
       title: "GESTÃO DE TRÁFEGO",
@@ -35,16 +31,8 @@ export const AboutUs = () => {
       title: "PEÇAS PUBLICITÁRIAS",
       videoSrc: "/videos/pecas_publicitarias.mp4",
     },
-    {
-      id: 9,
-      title: "LOJA ONLINE",
-      videoSrc: "/videos/loja_online.mp4",
-    },
-    {
-      id: 10,
-      title: "COPY E REDAÇÃO",
-      videoSrc: "/videos/copy_redacao.mp4",
-    },
+    { id: 9, title: "LOJA ONLINE", videoSrc: "/videos/loja_online.mp4" },
+    { id: 10, title: "COPY E REDAÇÃO", videoSrc: "/videos/copy_redacao.mp4" },
   ];
 
   return (
@@ -59,10 +47,26 @@ export const AboutUs = () => {
           className={styles[`item${item.id}`]}
           onMouseEnter={() => setHoveredItem(item.id)}
           onMouseLeave={() => setHoveredItem(null)}
+          onClick={() =>
+            setHoveredItem(hoveredItem === item.id ? null : item.id)
+          } // Suporte para dispositivos touch
         >
           <h3>{item.title}</h3>
           {hoveredItem === item.id && (
-            <div className={styles.videoContainer}>
+            <div
+              className={styles.videoContainer}
+              onClick={(e) => e.stopPropagation()} // Impede fechamento ao clicar dentro do vídeo
+            >
+              <button
+                className={styles.closeButton}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setHoveredItem(null);
+                }}
+                aria-label="Fechar vídeo"
+              >
+                &times;
+              </button>
               <video src={item.videoSrc} autoPlay loop muted playsInline />
             </div>
           )}
