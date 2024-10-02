@@ -53,15 +53,17 @@ export const Header = () => {
         }`}
       >
         <ul>
-          {["TRABALHOS", "AGÊNCIA", "CONTATO"].map((item, index) => (
-            <li
-              key={index}
-              onClick={() => handleMenuItemClick(index)}
-              className={selectedItem === index ? styles.active : ""}
-            >
-              <a>{item}</a>
-            </li>
-          ))}
+          {["SERVIÇOS", "TRABALHOS", "AGÊNCIA", "CONTATO"].map(
+            (item, index) => (
+              <li
+                key={index}
+                onClick={() => handleMenuItemClick(index)}
+                className={selectedItem === index ? styles.active : ""}
+              >
+                <a>{item}</a>
+              </li>
+            )
+          )}
         </ul>
       </nav>
     </header>
