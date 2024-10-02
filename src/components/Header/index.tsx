@@ -7,20 +7,31 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 500);
       if (window.innerWidth > 500) {
-        setIsOpen(false); // Fecha o menu se a tela for redimensionada para maior que 500px
+        setIsOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
       }
     };
 
     window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
 
-    // Limpa o listener quando o componente é desmontado
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -36,7 +47,7 @@ export const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.logo}>
         <img src={Logo} alt="Logo Unity" />
       </div>
