@@ -1,16 +1,16 @@
 import styles from "./styles.module.scss";
 import imgItem1 from "../../assets/peca-carro01.jpg";
-import imgItem2 from "../../assets/embrase-backlight.jpg";
+import imgItem2 from "../../assets/sierra1.jpg";
 import imgItem3 from "../../assets/amazonia.jpg";
 import imgItem4 from "../../assets/markela.jpg";
 import imgItem5 from "../../assets/lustres.jpg";
-import imgItem6 from "../../assets/embrase2.jpg";
-import imgItem7 from "../../assets/prado-chaves.jpg";
-import imgItem8 from "../../assets/sadokin.jpg";
+import imgItem6 from "../../assetS/amawater.jpg";
+import imgItem7 from "../../assets/talkgolf.jpg";
+import imgItem8 from "../../assets/prado-chaves.jpg";
 import imgItem9 from "../../assets/artek.jpg";
 import imgItem10 from "../../assets/renault.jpg";
 import imgItem11 from "../../assets/center-fabril.jpg";
-import imgItem12 from "../../assets/grabsec.jpg";
+import imgItem12 from "../../assets/CUSTOS INVISÍVIS COM REIS OFFICE.jpg";
 
 interface PortfolioItem {
   id: string;
@@ -25,62 +25,62 @@ const portfolioItems: PortfolioItem[] = [
     id: "item1",
     gridArea: "item1",
     category: "MÍDIAS DIGITAIS E OFFLINE",
-    title: "AULAS DE GOLFE COM A FPG GOLFCENTER",
+    title: "AULAS DE GOLFE COM FPG GOLFCENTER",
     imageUrl: imgItem1,
   },
   {
     id: "item2",
     gridArea: "item2",
-    category: "OUT OF HOME",
-    title: "EMBRASE",
+    category: "MÍDIA DIGITAIS",
+    title: "FRETES AÉREOS COM SIERRA MIKE",
     imageUrl: imgItem2,
   },
   {
     id: "item3",
     gridArea: "item3",
     category: "3D - OUT OF HOME",
-    title: "AMAZÔNIA",
+    title: "DO BRASIL PARA O MUNDO COM AMAZÔNIA",
     imageUrl: imgItem3,
   },
   {
     id: "item4",
     gridArea: "item4",
-    category: "MÍDIAS ONLINE E OFFLINE",
+    category: "ILUSTRAÇÃO 3D",
     title: "MARKELA COSMÉTICOS",
     imageUrl: imgItem4,
   },
   {
     id: "item5",
     gridArea: "item5",
-    category: "TV E MÍDIA IMPRESSA",
-    title: "LUSTRES YAMAMURA",
+    category: "TV E MÍDIA OFFLINE",
+    title: "TUDO PARA O SEU PROJETO COM LUSTRES YAMAMURA",
     imageUrl: imgItem5,
   },
   {
     id: "item6",
     gridArea: "item6",
-    category: "MÍDIAS ONLINE E OFFLINE",
-    title: "EMBRASE",
+    category: "MÍDIAS DIGITAIS",
+    title: "CRUZEIROS PELO RIO DANÚBIO COM AMA WATER WAYS",
     imageUrl: imgItem6,
   },
   {
     id: "item7",
     gridArea: "item7",
-    category: "MÍDIAS ONLINE E OFFLINE",
-    title: "PRADO CHAVES",
+    category: "MÍDIAS DIGITAIS",
+    title: "VINHETAS PARA PODCAST COM TALK GOLF SHOW",
     imageUrl: imgItem7,
   },
   {
     id: "item8",
     gridArea: "item8",
-    category: "STATIONERY",
-    title: "SADOKIN",
+    category: "MÍDIAS ONLINE E OFFLINE",
+    title: "QUANDO E ONDE PRECISAR COM PRADO CHAVES",
     imageUrl: imgItem8,
   },
   {
     id: "item9",
     gridArea: "item9",
-    category: "STATIONERY",
+    category: "MÍDIA OFFLINE",
     title: "ARTEK",
     imageUrl: imgItem9,
   },
@@ -88,21 +88,21 @@ const portfolioItems: PortfolioItem[] = [
     id: "item10",
     gridArea: "item10",
     category: "PDV - MÍDIA OFFLINE",
-    title: "RENAULT",
+    title: "VERÃO DE NORTE A SUL COM RENAULT",
     imageUrl: imgItem10,
   },
   {
     id: "item11",
     gridArea: "item11",
     category: "MÍDIA OFFLINE",
-    title: "CENTER FABRIL",
+    title: "OS FIOS QUE TECEM SUA VIDA COM CENTER FABRIL",
     imageUrl: imgItem11,
   },
   {
     id: "item12",
     gridArea: "item12",
-    category: "MÍDIA OFFLINE",
-    title: "GRABSEC",
+    category: "MÍDIAS DIGITAIS",
+    title: "CUSTOS INVISÍVEIS COM REIS OFFICE",
     imageUrl: imgItem12,
   },
 ];
