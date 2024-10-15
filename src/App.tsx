@@ -1,7 +1,8 @@
-import { AboutUs } from "./components/AboutUs";
+import Agencia from "./components/Agencia";
 import { Header } from "./components/Header";
 import { MainVideo } from "./components/MainVideo";
 import { Portfolio } from "./components/Portfolio";
+import { Servicos } from "./components/Servicos";
 import "./styles/index.css";
 
 function App() {
@@ -9,8 +10,9 @@ function App() {
     <>
       <Header />
       <MainVideo />
-      <AboutUs />
+      <Servicos />
       <Portfolio />
+      <Agencia />
     </>
   );
 }

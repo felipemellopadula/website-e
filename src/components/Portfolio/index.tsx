@@ -4,13 +4,13 @@ import imgItem2 from "../../assets/sierra1.jpg";
 import imgItem3 from "../../assets/amazonia.jpg";
 import imgItem4 from "../../assets/markela.jpg";
 import imgItem5 from "../../assets/lustres.jpg";
-import imgItem6 from "../../assetS/amawater.jpg";
+import imgItem6 from "../../assets/amawater.jpg";
 import imgItem7 from "../../assets/talkgolf.jpg";
 import imgItem8 from "../../assets/prado-chaves.jpg";
 import imgItem9 from "../../assets/artek.jpg";
 import imgItem10 from "../../assets/renault.jpg";
 import imgItem11 from "../../assets/center-fabril.jpg";
-import imgItem12 from "../../assets/CUSTOS INVISÍVIS COM REIS OFFICE.jpg";
+import imgItem12 from "../../assets/real-green.png";
 
 interface PortfolioItem {
   id: string;
@@ -102,7 +102,7 @@ const portfolioItems: PortfolioItem[] = [
     id: "item12",
     gridArea: "item12",
     category: "MÍDIAS DIGITAIS",
-    title: "CUSTOS INVISÍVEIS COM REIS OFFICE",
+    title: "CARRINHOS DE GOLFE NO BRASIL COM REAL GREEN E TORO",
     imageUrl: imgItem12,
   },
 ];
@@ -115,7 +115,6 @@ export const Portfolio = () => {
           key={item.id}
           className={`${styles.portfolioItem} ${styles[item.id]}`}
           style={{
-            gridArea: item.gridArea,
             backgroundImage: `url(${item.imageUrl})`,
           }}
         >

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
-import videoBgDesktop from "../../assets/video_ae_new_desktop.mp4";
+import videoBgDesktop from "../../assets/video_ae02A.mp4";
 import videoBgIpad from "../../assets/video_ae_ipad.mp4";
 import videoBgIpadAir from "../../assets/video_ae_ipadair.mp4";
 import videoBgMobile from "../../assets/video_ae_mobile.mp4";
