@@ -1,9 +1,13 @@
 import styles from "./Agencia.module.scss";
 import agenciaImg from "../../assets/who03.jpg";
+import { useEffect } from "react";
 
-const Agencia: React.FC = () => {
+export const Agencia: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }, []);
   return (
-    <section className={styles.mainContainer}>
+    <section id="Agencia" className={styles.mainContainer}>
       <div className={styles.containerFlex}>
         <div className={styles.imgContainer}>
           <img src={agenciaImg} alt="Foto do escritorio da agência" />
@@ -21,17 +25,11 @@ const Agencia: React.FC = () => {
               constante: a ideia. Aquele momento de insight, de criatividade e
               de inovação que pode mudar tudo. Nossa agência nasceu há 31 anos
               com um propósito claro: criar ideias que transformam. E essa
-              missão continua mais relevante do que nunca. Independentemente do
-              meio, plataforma ou canal, a ideia é o cerne de tudo o que
-              fazemos.
-            </p>
-            <br />
-            <p>
-              Com o passar do tempo, fizemos de tudo um pouco: comunicação,
-              campanhas publicitárias, digitais...E estamos mais na ativa do que
-              nunca. Com uma equipe de criativos e estrategistas apaixonados,
-              trabalhamos para criar soluções inovadoras que respondam às
-              necessidades de nossos clientes.
+              missão continua: comunicação, campanhas publicitárias,
+              digitais...E estamos mais na ativa do que nunca. Com uma equipe de
+              criativos e estrategistas apaixonados, trabalhamos para criar
+              soluções inovadoras que respondam às necessidades de nossos
+              clientes.
             </p>
             <br />
             <p>
@@ -52,5 +50,3 @@ const Agencia: React.FC = () => {
     </section>
   );
 };
-
-export default Agencia;

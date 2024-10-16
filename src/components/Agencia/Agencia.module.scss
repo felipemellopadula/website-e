@@ -1,5 +1,5 @@
+// Agencia.module.scss
 .mainContainer {
-  height: 100vh;
   width: 100%;
   max-width: 100vw;
   font-family: var(--font-family1);
@@ -36,22 +36,26 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+
         h3 {
           font-size: clamp(1.8rem, 1.743rem + 1.174vw, 2.5rem);
           font-weight: 500;
           color: rgb(255, 94, 0);
           display: flex;
         }
+
         h4 {
           font-size: clamp(1rem, 0.839rem + 0.734vw, 1.5rem);
           color: var(--grey-1);
           font-weight: var(--font-weight6);
         }
+
         p {
           font-size: clamp(0.7rem, 1cqw + 1cqw, 1.5rem);
           color: var(--grey-5);
           line-height: 2rem;
         }
+
         span {
           font-size: clamp(1rem, 1.104rem + 0.44vw, 1.5rem);
           color: var(--grey-1);

@@ -1,80 +1,61 @@
-import React, { useState, useEffect } from "react";
+// Header.tsx
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./styles.module.scss";
-import { FaBars, FaTimes } from "react-icons/fa";
-import Logo from "../../assets/LogoUnity3dB.png";
 
-export const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
-  const [scrolled, setScrolled] = useState(false);
+export const Header: React.FC = () => {
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 500);
-      if (window.innerWidth > 500) {
-        setIsOpen(false);
-      }
-    };
+    const targetComponent = getTargetComponentFromPath(pathname);
+    if (targetComponent) {
+      scrollToComponent(targetComponent);
+    }
+  }, [pathname]);
 
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 0) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleToggleMenu = () => {
-    setIsOpen(!isOpen);
+  const getTargetComponentFromPath = (path: string) => {
+    switch (path) {
+      case "/":
+        return "MainVideo";
+      case "/servicos":
+        return "Servicos";
+      case "/trabalhos":
+        return "Portfolio";
+      case "/agencia":
+        return "Agencia";
+      case "/contato":
+        return "Contato";
+      default:
+        return null;
+    }
   };
 
-  const handleMenuItemClick = (index: any) => {
-    setSelectedItem(index);
-    if (isMobile) {
-      setIsOpen(false);
+  const scrollToComponent = (componentName: string) => {
+    const component = document.getElementById(componentName);
+    if (component) {
+      component.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={styles.logo}>
-        <img src={Logo} alt="Logo Unity" />
-      </div>
-
-      {isMobile && (
-        <div className={styles.burgerIcon} onClick={handleToggleMenu}>
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </div>
-      )}
-
-      <nav
-        className={`${styles.nav} ${isMobile && isOpen ? styles.navOpen : ""} ${
-          !isMobile ? styles.navDesktop : ""
-        }`}
-      >
+    <header>
+      <nav>
         <ul>
-          {["SERVIÇOS", "TRABALHOS", "AGÊNCIA", "CONTATO"].map(
-            (item, index) => (
-              <li
-                key={index}
-                onClick={() => handleMenuItemClick(index)}
-                className={selectedItem === index ? styles.active : ""}
-              >
-                <a>{item}</a>
-              </li>
-            )
-          )}
+          <li>
+            <Link to="/">Main Video</Link>
+          </li>
+          <li>
+            <Link to="/servicos">Serviços</Link>
+          </li>
+          <li>
+            <Link to="/trabalhos">Portfólio</Link>
+          </li>
+          <li>
+            <Link to="/agencia">Agência</Link>
+          </li>
+          <li>
+            <Link to="/contato">Contato</Link>
+          </li>
         </ul>
       </nav>
     </header>

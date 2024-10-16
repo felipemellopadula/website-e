@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
 export const Servicos = () => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }, []);
 
   const items = [
     {
@@ -64,7 +68,7 @@ export const Servicos = () => {
   ];
 
   return (
-    <section className={styles.aboutSection}>
+    <section id="Servicos" className={styles.aboutSection}>
       <div className={styles.item1}></div>
       <div className={styles.item2}>
         <h3>

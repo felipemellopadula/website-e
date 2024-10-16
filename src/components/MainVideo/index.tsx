@@ -30,7 +30,7 @@ export const MainVideo = () => {
   }, []);
 
   return (
-    <div className={styles.main}>
+    <div id="MainVideo" className={styles.main}>
       <video src={videoSource} autoPlay loop muted />
     </div>
   );

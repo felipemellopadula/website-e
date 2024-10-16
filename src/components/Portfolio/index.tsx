@@ -11,6 +11,7 @@ import imgItem9 from "../../assets/artek.jpg";
 import imgItem10 from "../../assets/renault.jpg";
 import imgItem11 from "../../assets/center-fabril.jpg";
 import imgItem12 from "../../assets/real-green.png";
+import { useEffect } from "react";
 
 interface PortfolioItem {
   id: string;
@@ -108,8 +109,11 @@ const portfolioItems: PortfolioItem[] = [
 ];
 
 export const Portfolio = () => {
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }, []);
   return (
-    <div className={styles.container}>
+    <div id="Portfolio" className={styles.container}>
       {portfolioItems.map((item) => (
         <div
           key={item.id}
