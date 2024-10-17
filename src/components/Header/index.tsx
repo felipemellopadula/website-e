@@ -1,63 +1,68 @@
-// Header.tsx
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import styles from "./styles.module.scss";
+import styles from "./Header.module.scss";
+import logoImage from "../../assets/LogoUnity3dB.png";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export const Header: React.FC = () => {
-  const { pathname } = useLocation();
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const targetComponent = getTargetComponentFromPath(pathname);
-    if (targetComponent) {
-      scrollToComponent(targetComponent);
-    }
-  }, [pathname]);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
 
-  const getTargetComponentFromPath = (path: string) => {
-    switch (path) {
-      case "/":
-        return "MainVideo";
-      case "/servicos":
-        return "Servicos";
-      case "/trabalhos":
-        return "Portfolio";
-      case "/agencia":
-        return "Agencia";
-      case "/contato":
-        return "Contato";
-      default:
-        return null;
-    }
-  };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const scrollToComponent = (componentName: string) => {
-    const component = document.getElementById(componentName);
-    if (component) {
-      component.scrollIntoView({ behavior: "smooth" });
-    }
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+    document.body.style.overflow = isNavOpen ? "auto" : "hidden";
   };
 
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Main Video</Link>
-          </li>
-          <li>
-            <Link to="/servicos">Serviços</Link>
-          </li>
-          <li>
-            <Link to="/trabalhos">Portfólio</Link>
-          </li>
-          <li>
-            <Link to="/agencia">Agência</Link>
-          </li>
-          <li>
-            <Link to="/contato">Contato</Link>
-          </li>
-        </ul>
-      </nav>
+    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
+      <div className={styles.logo}>
+        <Link to="/">
+          <img src={logoImage} alt="Logo" />
+        </Link>
+      </div>
+      <div className={styles.burgerIcon} onClick={toggleNav}>
+        <FaBars />
+      </div>
+      {isNavOpen && (
+        <div className={styles.menuOverlay}>
+          <nav className={styles.mobileNav}>
+            <div className={styles.closeIcon} onClick={toggleNav}>
+              <FaTimes />
+            </div>
+            <ul>
+              <li>
+                <Link to="/servicos" onClick={toggleNav}>
+                  Serviços
+                </Link>
+              </li>
+              <li>
+                <Link to="/trabalhos" onClick={toggleNav}>
+                  Trabalhos
+                </Link>
+              </li>
+              <li>
+                <Link to="/agencia" onClick={toggleNav}>
+                  Agência
+                </Link>
+              </li>
+              <li>
+                <Link to="/contato" onClick={toggleNav}>
+                  Contato
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
