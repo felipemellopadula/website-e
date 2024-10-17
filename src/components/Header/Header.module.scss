@@ -19,6 +19,7 @@
 
   &.scrolled {
     background-color: white;
+    height: 12dvh;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
@@ -73,6 +74,7 @@
 
     .burgerIcon {
       display: block;
+      color: #f84600;
     }
   }
 }

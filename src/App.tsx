@@ -1,4 +1,3 @@
-// App.tsx
 import { BrowserRouter as Router } from "react-router-dom";
 import { Header } from "./components/Header";
 import { MainVideo } from "./components/MainVideo";
@@ -7,6 +6,7 @@ import { Portfolio } from "./components/Portfolio";
 import { Agencia } from "./components/Agencia";
 import { Contato } from "./components/Contato";
 import "./styles/index.css";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
       <Portfolio />
       <Agencia />
       <Contato />
+      <Footer />
     </Router>
   );
 }

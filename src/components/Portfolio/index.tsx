@@ -11,6 +11,7 @@ import imgItem9 from "../../assets/artek.jpg";
 import imgItem10 from "../../assets/renault.jpg";
 import imgItem11 from "../../assets/center-fabril.jpg";
 import imgItem12 from "../../assets/real-green.png";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 interface PortfolioItem {
@@ -109,9 +110,16 @@ const portfolioItems: PortfolioItem[] = [
 ];
 
 export const Portfolio = () => {
+  const navigate = useNavigate();
+
+  const handleItemClick = (itemId: string) => {
+    navigate(`/portfolio/${itemId}`);
+  };
+
   useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight);
   }, []);
+
   return (
     <div id="Portfolio" className={styles.container}>
       {portfolioItems.map((item) => (
@@ -121,6 +129,7 @@ export const Portfolio = () => {
           style={{
             backgroundImage: `url(${item.imageUrl})`,
           }}
+          onClick={() => handleItemClick(item.id)}
         >
           <div className={styles.content}>
             <div className={styles.category}>{item.category}</div>
