@@ -1,8 +1,8 @@
-// components/PortfolioItemPage.tsx
+// PortfolioItemPage/index.tsx
 import styles from "./PortfolioItemPage.module.scss";
 import { useParams } from "react-router-dom";
 import headImage from "../../assets/head.png";
-import { portfolioItemsData } from "../../components/PortfolioItemPage/portfolio-items";
+import { portfolioItemsData } from "./portfolio-items"; // Ajuste este caminho conforme necessário
 
 export const PortfolioItemPage = () => {
   const { itemId } = useParams<{ itemId: string }>();

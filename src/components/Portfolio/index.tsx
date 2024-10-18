@@ -125,10 +125,8 @@ export const Portfolio = () => {
       {portfolioItems.map((item) => (
         <div
           key={item.id}
-          className={`${styles.portfolioItem} ${styles[item.id]}`}
-          style={{
-            backgroundImage: `url(${item.imageUrl})`,
-          }}
+          className={`${styles.portfolioItem} ${styles[item.gridArea]}`}
+          style={{ backgroundImage: `url(${item.imageUrl})` }}
           onClick={() => handleItemClick(item.id)}
         >
           <div className={styles.content}>

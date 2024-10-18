@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-scroll"; // Importando react-scroll para rolagem suave
 import styles from "./Header.module.scss";
 import logoImage from "../../assets/LogoUnity3dB.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 export const Header: React.FC = () => {
-  const { pathname } = useLocation();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -23,30 +22,6 @@ export const Header: React.FC = () => {
     document.body.style.overflow = isNavOpen ? "auto" : "hidden";
   };
 
-  const getTargetComponentFromPath = (path: string) => {
-    switch (path) {
-      case "/":
-        return "MainVideo";
-      case "/servicos":
-        return "Servicos";
-      case "/trabalhos":
-        return "Portfolio";
-      case "/agencia":
-        return "Agencia";
-      case "/contato":
-        return "Contato";
-      default:
-        return null;
-    }
-  };
-
-  const scrollToComponent = (componentName: string) => {
-    const component = document.getElementById(componentName);
-    if (component) {
-      component.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <>
       <header
@@ -54,41 +29,29 @@ export const Header: React.FC = () => {
       >
         <div className={styles.container}>
           <div className={styles.logo}>
-            <Link to="/" onClick={() => scrollToComponent("MainVideo")}>
+            <Link to="MainVideo" smooth={true} duration={500}>
               <img src={logoImage} alt="Logo" />
             </Link>
           </div>
           <nav className={`${styles.nav} ${isNavOpen ? styles.open : ""}`}>
             <ul>
               <li>
-                <Link
-                  to="/servicos"
-                  onClick={() => scrollToComponent("Servicos")}
-                >
+                <Link to="Servicos" smooth={true} duration={500}>
                   Serviços
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/trabalhos"
-                  onClick={() => scrollToComponent("Portfolio")}
-                >
+                <Link to="Portfolio" smooth={true} duration={500}>
                   Trabalhos
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/agencia"
-                  onClick={() => scrollToComponent("Agencia")}
-                >
+                <Link to="Agencia" smooth={true} duration={500}>
                   Agência
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/contato"
-                  onClick={() => scrollToComponent("Contato")}
-                >
+                <Link to="Contato" smooth={true} duration={500}>
                   Contato
                 </Link>
               </li>
@@ -98,7 +61,7 @@ export const Header: React.FC = () => {
             className={`${styles.burgerIcon} ${isNavOpen ? styles.open : ""}`}
             onClick={toggleNav}
           >
-            {isNavOpen ? null : <FaBars />}
+            {isNavOpen ? <FaTimes /> : <FaBars />}
           </div>
         </div>
       </header>
@@ -116,44 +79,40 @@ export const Header: React.FC = () => {
             <ul>
               <li>
                 <Link
-                  to="/servicos"
-                  onClick={() => {
-                    scrollToComponent("Servicos");
-                    toggleNav();
-                  }}
+                  to="Servicos"
+                  smooth={true}
+                  duration={500}
+                  onClick={toggleNav} // Agora está aqui apenas para fechar o menu
                 >
                   Serviços
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/trabalhos"
-                  onClick={() => {
-                    scrollToComponent("Portfolio");
-                    toggleNav();
-                  }}
+                  to="Portfolio"
+                  smooth={true}
+                  duration={500}
+                  onClick={toggleNav} // Agora está aqui apenas para fechar o menu
                 >
                   Trabalhos
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/agencia"
-                  onClick={() => {
-                    scrollToComponent("Agencia");
-                    toggleNav();
-                  }}
+                  to="Agencia"
+                  smooth={true}
+                  duration={500}
+                  onClick={toggleNav} // Agora está aqui apenas para fechar o menu
                 >
                   Agência
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/contato"
-                  onClick={() => {
-                    scrollToComponent("Contato");
-                    toggleNav();
-                  }}
+                  to="Contato"
+                  smooth={true}
+                  duration={500}
+                  onClick={toggleNav} // Agora está aqui apenas para fechar o menu
                 >
                   Contato
                 </Link>

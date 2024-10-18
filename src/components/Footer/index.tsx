@@ -4,8 +4,8 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p>
-        Desenvolvido por Unity Comunicação. ©Todos os direitos reservados a
-        Unity Comunicação.
+        Criação e Desenvolvimento por Unity Comunicação. ©Copyright 2024-2025 -
+        Todos os direitos reservados a Unity Comunicação.
       </p>
     </footer>
   );
