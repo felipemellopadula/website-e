@@ -1,3 +1,5 @@
+// Header.module.scss
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -39,17 +41,21 @@
       gap: 2rem;
 
       li {
+        // Configuração para o link do menu
+        position: relative; // Para o efeito do aumento
+
         a {
           text-decoration: none;
           color: #f84600;
           font-size: clamp(1rem, 0.857rem + 0.381vw, 1.2rem);
           font-weight: bold;
-          transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
+          transition: color 0.3s ease, padding 0.3s ease; // Transição para cor e padding
 
+          // Efeito hover
           &:hover {
-            color: #111111;
-            transform: scale(1.1);
-            font-size: clamp(1.1rem, 0.943rem + 0.419vw, 1.3rem);
+            color: #111111; // Quando hover
+            padding: 0.5rem; // Aumenta o padding
+            margin-bottom: -0.5rem; // Margem negativa para compensar o aumento
             cursor: pointer;
           }
         }
@@ -122,12 +128,10 @@
           font-size: 2rem;
           text-decoration: none;
           color: #333;
-          transition: color 0.3s ease, transform 0.3s ease;
+          transition: color 0.3s ease;
 
           &:hover {
             color: #ff5e00;
-            transform: scale(1.2);
-            cursor: pointer;
           }
         }
       }

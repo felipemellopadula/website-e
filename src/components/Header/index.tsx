@@ -1,3 +1,4 @@
+// Header.tsx
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll"; // Importando react-scroll para rolagem suave
 import styles from "./Header.module.scss";
@@ -82,7 +83,7 @@ export const Header: React.FC = () => {
                   to="Servicos"
                   smooth={true}
                   duration={500}
-                  onClick={toggleNav} // Agora está aqui apenas para fechar o menu
+                  onClick={toggleNav}
                 >
                   Serviços
                 </Link>
@@ -92,7 +93,7 @@ export const Header: React.FC = () => {
                   to="Portfolio"
                   smooth={true}
                   duration={500}
-                  onClick={toggleNav} // Agora está aqui apenas para fechar o menu
+                  onClick={toggleNav}
                 >
                   Trabalhos
                 </Link>
@@ -102,7 +103,7 @@ export const Header: React.FC = () => {
                   to="Agencia"
                   smooth={true}
                   duration={500}
-                  onClick={toggleNav} // Agora está aqui apenas para fechar o menu
+                  onClick={toggleNav}
                 >
                   Agência
                 </Link>
@@ -112,7 +113,7 @@ export const Header: React.FC = () => {
                   to="Contato"
                   smooth={true}
                   duration={500}
-                  onClick={toggleNav} // Agora está aqui apenas para fechar o menu
+                  onClick={toggleNav}
                 >
                   Contato
                 </Link>

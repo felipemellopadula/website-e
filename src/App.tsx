@@ -1,5 +1,4 @@
 // App.tsx
-import React from "react";
 import { HashRouter as Router, Route, Routes } from "react-router-dom"; // Usando HashRouter para rolagem suave
 import { Header } from "./components/Header";
 import { MainVideo } from "./components/MainVideo";
@@ -16,6 +15,7 @@ function App() {
   return (
     <Router>
       <Header />
+
       <Routes>
         <Route
           path="/"
@@ -50,6 +50,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </Router>
   );
 }
