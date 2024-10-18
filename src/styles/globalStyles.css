@@ -25,4 +25,5 @@
 
 body {
   background-color: var(--mode);
+  scroll-behavior: smooth;
 }

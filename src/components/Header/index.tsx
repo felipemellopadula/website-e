@@ -1,6 +1,6 @@
-// Header.tsx
+// components/Header.tsx
 import React, { useState, useEffect } from "react";
-import { Link } from "react-scroll"; // Importando react-scroll para rolagem suave
+import { Link as RouterLink, useLocation } from "react-router-dom"; // Importando Link do react-router-dom
 import styles from "./Header.module.scss";
 import logoImage from "../../assets/LogoUnity3dB.png";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -8,6 +8,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 export const Header: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,31 +31,23 @@ export const Header: React.FC = () => {
       >
         <div className={styles.container}>
           <div className={styles.logo}>
-            <Link to="MainVideo" smooth={true} duration={500}>
+            <RouterLink to="/">
               <img src={logoImage} alt="Logo" />
-            </Link>
+            </RouterLink>
           </div>
           <nav className={`${styles.nav} ${isNavOpen ? styles.open : ""}`}>
             <ul>
               <li>
-                <Link to="Servicos" smooth={true} duration={500}>
-                  Serviços
-                </Link>
+                <RouterLink to="/#servicos">Serviços</RouterLink>
               </li>
               <li>
-                <Link to="Portfolio" smooth={true} duration={500}>
-                  Trabalhos
-                </Link>
+                <RouterLink to="/#portfolio">Trabalhos</RouterLink>
               </li>
               <li>
-                <Link to="Agencia" smooth={true} duration={500}>
-                  Agência
-                </Link>
+                <RouterLink to="/#agencia">Agência</RouterLink>
               </li>
               <li>
-                <Link to="Contato" smooth={true} duration={500}>
-                  Contato
-                </Link>
+                <RouterLink to="/#contato">Contato</RouterLink>
               </li>
             </ul>
           </nav>
@@ -79,44 +72,24 @@ export const Header: React.FC = () => {
           <nav className={styles.mobileNav}>
             <ul>
               <li>
-                <Link
-                  to="Servicos"
-                  smooth={true}
-                  duration={500}
-                  onClick={toggleNav}
-                >
+                <RouterLink to="/#servicos" onClick={toggleNav}>
                   Serviços
-                </Link>
+                </RouterLink>
               </li>
               <li>
-                <Link
-                  to="Portfolio"
-                  smooth={true}
-                  duration={500}
-                  onClick={toggleNav}
-                >
+                <RouterLink to="/#portfolio" onClick={toggleNav}>
                   Trabalhos
-                </Link>
+                </RouterLink>
               </li>
               <li>
-                <Link
-                  to="Agencia"
-                  smooth={true}
-                  duration={500}
-                  onClick={toggleNav}
-                >
+                <RouterLink to="/#agencia" onClick={toggleNav}>
                   Agência
-                </Link>
+                </RouterLink>
               </li>
               <li>
-                <Link
-                  to="Contato"
-                  smooth={true}
-                  duration={500}
-                  onClick={toggleNav}
-                >
+                <RouterLink to="/#contato" onClick={toggleNav}>
                   Contato
-                </Link>
+                </RouterLink>
               </li>
             </ul>
           </nav>

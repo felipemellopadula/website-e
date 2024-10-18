@@ -1,13 +1,9 @@
 // App.tsx
-import { HashRouter as Router, Route, Routes } from "react-router-dom"; // Usando HashRouter para rolagem suave
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header";
-import { MainVideo } from "./components/MainVideo";
-import { Servicos } from "./components/Servicos";
-import { Portfolio } from "./components/Portfolio";
-import { Agencia } from "./components/Agencia";
-import { Contato } from "./components/Contato";
 import { Footer } from "./components/Footer";
-import { PortfolioItemPage } from "./components/PortfolioItemPage"; // Importando a página do item do portfólio
+import { PortfolioItemPage } from "./components/PortfolioItemPage";
+import Home from "./components/Home"; // Importando o componente Home
 
 import "./styles/index.css";
 
@@ -17,39 +13,12 @@ function App() {
       <Header />
 
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <MainVideo />
-              <div id="servicos">
-                <Servicos />
-              </div>
-              <div id="portfolio">
-                <Portfolio />
-              </div>
-              <div id="agencia">
-                <Agencia />
-              </div>
-              <div id="contato">
-                <Contato />
-              </div>
-            </>
-          }
-        />
-
-        {/* Rota para PortfolioItemPage, apenas renderizando Header, PortfolioItemPage e Footer */}
-        <Route
-          path="/portfolio/:itemId"
-          element={
-            <>
-              <Header />
-              <PortfolioItemPage />
-              <Footer />
-            </>
-          }
-        />
+        <Route path="/" element={<Home />} />{" "}
+        {/* Rota para a página principal */}
+        <Route path="/portfolio/:itemId" element={<PortfolioItemPage />} />{" "}
+        {/* Rota para itens do portfólio */}
       </Routes>
+
       <Footer />
     </Router>
   );

@@ -99,5 +99,25 @@
       line-height: 1.6;
       margin-bottom: 1rem;
     }
+
+    .navLinks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-top: 2rem;
+
+      .navLink {
+        font-size: 1.1rem;
+        color: #f84600;
+        text-decoration: none;
+        margin-right: 2rem;
+        margin-bottom: 1rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #111111;
+        }
+      }
+    }
   }
 }

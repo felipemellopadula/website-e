@@ -1,12 +1,20 @@
-// PortfolioItemPage/index.tsx
-import styles from "./PortfolioItemPage.module.scss";
+// components/PortfolioItemPage.tsx
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import styles from "./PortfolioItemPage.module.scss";
+import { portfolioItemsData } from "./portfolio-items";
 import headImage from "../../assets/head.png";
-import { portfolioItemsData } from "./portfolio-items"; // Ajuste este caminho conforme necessário
 
 export const PortfolioItemPage = () => {
   const { itemId } = useParams<{ itemId: string }>();
-  const item = portfolioItemsData.find((i) => i.id === itemId);
+  const [item, setItem] = useState<(typeof portfolioItemsData)[number] | null>(
+    null
+  );
+
+  useEffect(() => {
+    const foundItem = portfolioItemsData.find((i) => i.id === itemId);
+    setItem(foundItem || null);
+  }, [itemId]);
 
   if (!item) {
     return <div>Item não encontrado</div>;
@@ -27,7 +35,10 @@ export const PortfolioItemPage = () => {
           <div className={styles.secondaryImages}>
             {item.secondaryImages?.map((image, index) => (
               <div key={index} className={styles.imageItem}>
-                <img src={image} alt={`${item.title} - Image ${index + 1}`} />
+                <img
+                  src={image}
+                  alt={`${item.title} - Image ${index + 1}`} // Correção de sintaxe
+                />
               </div>
             ))}
           </div>
