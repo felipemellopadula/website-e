@@ -7,7 +7,7 @@ import { Portfolio } from "../Portfolio";
 import { Agencia } from "../Agencia";
 import { Contato } from "../Contato";
 
-const Home: React.FC = () => {
+export const SinglePage: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
@@ -44,5 +44,3 @@ const Home: React.FC = () => {
     </>
   );
 };
-
-export default Home;

@@ -1,9 +1,8 @@
-// components/PortfolioItemPage.tsx
+// PortfolioItemPage.tsx
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./PortfolioItemPage.module.scss";
 import { portfolioItemsData } from "./portfolio-items";
-import headImage from "../../assets/head.png";
 
 export const PortfolioItemPage = () => {
   const { itemId } = useParams<{ itemId: string }>();
@@ -23,7 +22,6 @@ export const PortfolioItemPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <img src={headImage} alt="Header" className={styles.headerImage} />
         <h1 className={styles.headerTitle}>{item.title}</h1>
         <p className={styles.headerDescription}>{item.description}</p>
       </div>
@@ -35,10 +33,7 @@ export const PortfolioItemPage = () => {
           <div className={styles.secondaryImages}>
             {item.secondaryImages?.map((image, index) => (
               <div key={index} className={styles.imageItem}>
-                <img
-                  src={image}
-                  alt={`${item.title} - Image ${index + 1}`} // Correção de sintaxe
-                />
+                <img src={image} alt={`${item.title} - Image ${index + 1}`} />
               </div>
             ))}
           </div>
