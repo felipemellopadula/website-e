@@ -17,7 +17,7 @@ function App() {
         <Route path="/portfolio/:itemId" element={<PortfolioItemPage />} />{" "}
       </Routes>
 
-      <Footer />
+      <Footer/>
     </Router>
   );
 }

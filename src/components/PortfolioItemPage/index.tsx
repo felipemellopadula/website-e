@@ -1,14 +1,12 @@
-// PortfolioItemPage.tsx
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./PortfolioItemPage.module.scss";
-import { portfolioItemsData } from "./portfolio-items";
+import { IPortfolioItem, portfolioItemsData } from "./portfolio-items";
+import { useEffect, useState } from "react";
+import { FaWhatsapp, FaInstagram, FaFacebookF, FaTimes } from "react-icons/fa";
 
 export const PortfolioItemPage = () => {
   const { itemId } = useParams<{ itemId: string }>();
-  const [item, setItem] = useState<(typeof portfolioItemsData)[number] | null>(
-    null
-  );
+  const [item, setItem] = useState<IPortfolioItem | null>(null);
 
   useEffect(() => {
     const foundItem = portfolioItemsData.find((i) => i.id === itemId);
@@ -19,29 +17,77 @@ export const PortfolioItemPage = () => {
     return <div>Item não encontrado</div>;
   }
 
+  const handleShare = (network: string) => {
+    switch (network) {
+      case "whatsapp":
+        window.open(
+          `https://api.whatsapp.com/send?text=${item.title}`,
+          "_blank"
+        );
+        break;
+      case "instagram":
+        window.open(
+          `https://www.instagram.com/share?url=${item.title}`,
+          "_blank"
+        );
+        break;
+      case "facebook":
+        window.open(
+          `https://www.facebook.com/sharer/sharer.php?u=${item.title}`,
+          "_blank"
+        );
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
+        <div className={styles.boxWhite}></div>
         <h1 className={styles.headerTitle}>{item.title}</h1>
-        <p className={styles.headerDescription}>{item.description}</p>
       </div>
       <div className={styles.content}>
-        <div className={styles.gallery}>
-          <div className={styles.mainImage}>
-            <img src={item.imageUrl} alt={item.title} />
+        <div className={styles.item1}>
+          <div className={styles.client}>
+          <h4>CLIENTE</h4>
+          <p>{item.client}</p>
           </div>
-          <div className={styles.secondaryImages}>
-            {item.secondaryImages?.map((image, index) => (
-              <div key={index} className={styles.imageItem}>
-                <img src={image} alt={`${item.title} - Image ${index + 1}`} />
-              </div>
-            ))}
+          <div className={styles.midia}>
+            <h4>MÍDIA</h4>
+            <p>{item.category}</p>
+          </div>
+          <div className={styles.share}>
+            <h4>COMPARTILHE</h4>
+            <div className={styles.shareIcons}>
+              <FaWhatsapp
+                className={styles.shareIcon}
+                onClick={() => handleShare("whatsapp")}
+              />
+              <FaInstagram
+                className={styles.shareIcon}
+                onClick={() => handleShare("instagram")}
+              />
+              <FaFacebookF
+                className={styles.shareIcon}
+                onClick={() => handleShare("facebook")}
+              />
+              <FaTimes className={styles.shareIcon} />
+            </div>
           </div>
         </div>
-        <div className={styles.textContent}>
-          <p className={styles.category}>{item.category}</p>
-          <div dangerouslySetInnerHTML={{ __html: item.content }} />
+        <div className={styles.item2}>
+          <p>{item.content}</p>
         </div>
+        <div className={styles.item3}>
+        <img src={item.imageUrl} alt="Peça FPG" />
+      </div>
+      <div className={styles.item4}>
+      <img src={item.imageUrl2} alt="Outra versão da mesma peça" />
+      </div>
+     
+        
       </div>
     </div>
   );

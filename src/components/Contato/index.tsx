@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, ContactFormData } from "./validation";
 import { Input } from "../Input";
 import styles from "./Contact.module.scss";
+import { Footer } from "../Footer";
 
 export const Contato: React.FC = () => {
   const {

@@ -48,7 +48,7 @@ const portfolioItems: PortfolioItem[] = [
     id: "item4",
     gridArea: "item4",
     category: "ILUSTRAÇÃO 3D",
-    title: "MARKELA COSMÉTICOS",
+    title: "LINHA DE PRODUTOS COM MARKELA COSMÉTICOS",
     imageUrl: imgItem4,
   },
   {
@@ -83,7 +83,7 @@ const portfolioItems: PortfolioItem[] = [
     id: "item9",
     gridArea: "item9",
     category: "MÍDIA OFFLINE",
-    title: "ARTEK",
+    title: "NOVOS CATÁLOGOS COM ARTEK",
     imageUrl: imgItem9,
   },
   {
