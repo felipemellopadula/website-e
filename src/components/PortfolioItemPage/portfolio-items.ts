@@ -18,7 +18,7 @@ export const portfolioItemsData: IPortfolioItem[] = [
     id: "item1",
     client: "Federação Paulista de Golfe",
     title: "AULAS DE GOLFE COM FPG GOLFCENTER",
-    category: "Mídias offline e digitais",
+    category: "Offline e Digitais",
     description: "Descrição detalhada do item 1",
     imageUrl: fpgImage1,
     imageUrl2: fpgImage2,

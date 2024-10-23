@@ -86,8 +86,6 @@ export const PortfolioItemPage = () => {
       <div className={styles.item4}>
       <img src={item.imageUrl2} alt="Outra versão da mesma peça" />
       </div>
-     
-        
       </div>
     </div>
   );
