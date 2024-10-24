@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";  
 import { Link as RouterLink, useLocation } from "react-router-dom";   
 import styles from "./Header.module.scss";  
-import logoImage from "../../assets/LogoUnity3DB.png"; // Logo quando não está rolando  
-import scrolledLogoImage from "../../assets/logo3D.png"; // Logo quando está rolando  
+import logoImage from "../../assets/LogoUnity3DB.png"; 
+import scrolledLogoImage from "../../assets/logo3D.png";
 import { FaBars, FaTimes } from "react-icons/fa";  
 
 export const Header: React.FC = () => {  

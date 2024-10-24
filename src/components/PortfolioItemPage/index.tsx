@@ -51,8 +51,8 @@ export const PortfolioItemPage = () => {
       <div className={styles.content}>
         <div className={styles.item1}>
           <div className={styles.client}>
-          <h4>CLIENTE</h4>
-          <p>{item.client}</p>
+            <h4>CLIENTE</h4>
+            <p>{item.client}</p>
           </div>
           <div className={styles.midia}>
             <h4>MÍDIA</h4>
@@ -81,11 +81,25 @@ export const PortfolioItemPage = () => {
           <p>{item.content}</p>
         </div>
         <div className={styles.item3}>
-        <img src={item.imageUrl} alt="Peça FPG" />
-      </div>
-      <div className={styles.item4}>
-      <img src={item.imageUrl2} alt="Outra versão da mesma peça" />
-      </div>
+          {item.video1 ? (
+            <video controls width="100%" className={styles.video}>
+              <source src={item.video1} type="video/mp4" />
+              Seu navegador não suporta a tag de vídeo.
+            </video>
+          ) : (
+            <>
+              <img src={item.imageUrl} alt="Peça FPG" />
+              <img src={item.imageUrl2} alt="Outra versão da mesma peça" />
+              {/* Renderiza imagens do array imageUrl3, se disponível */}
+              {item.imageUrl3 &&
+                Array.isArray(item.imageUrl3) &&
+                item.imageUrl3.length > 0 &&
+                item.imageUrl3.map((image, index) => (
+                  <img key={index} src={image} alt={`Imagem ${index + 1}`} />
+                ))}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
