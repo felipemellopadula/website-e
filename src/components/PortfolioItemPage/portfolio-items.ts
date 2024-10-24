@@ -1,5 +1,5 @@
 import fpgImage1 from '../../assets/fpg/fpg-01.jpg';  
-import fpgImage2 from '../../assets/fpg/fpg-02.png';
+import fpgImage2 from '../../assets/fpg/fpg-04.jpg';
 
 export interface IPortfolioItem {
   id: string;
