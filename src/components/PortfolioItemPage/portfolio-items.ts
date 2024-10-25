@@ -15,6 +15,8 @@ import markela5 from "../../assets/Markela/ego2.png";
 import markela6 from "../../assets/Markela/perfume1.png";
 import markela7 from "../../assets/Markela/sense1.png";
 import markela8 from "../../assets/Markela/sense2.png";
+import yamamura1 from "../../assets/yamamura.png"
+import yamamuravideo1 from "../../assets/Yamamura.mp4"
 
 
 export interface IPortfolioItem {
@@ -88,8 +90,8 @@ export const portfolioItemsData: IPortfolioItem[] = [
     title: "TUDO PARA O SEU PROJETO COM LUSTRES YAMAMURA",
     category: "Tv, Offline e Digitais",
     description: "Descrição detalhada do item 5",
-    imageUrl: "/images/portfolio-item2.jpg",
-    imageUrl2: "../../assets/fpg/fpg-02.jpg",
+    imageUrl: yamamura1,
+video1: yamamuravideo1,
     content: `  
         A Lustres Yamamura tinha um desafio brilhante: mostrar que é O lugar para encontrar tudo em iluminação. E nós, da Unity, topamos iluminar esse caminho! Afinal, quem melhor do que nós para acender a chama do sucesso? 😉 Com o conceito "Tudo para o Seu Projeto", transformamos a Yamamura num verdadeiro marketplace da luz! 💡 Criamos uma campanha completa, que brilhou forte na TV, com um comercial impactante, e invadiu as ruas com anúncios offline e out-of-home de tirar o fôlego. E claro, as redes sociais e o digital não ficaram de fora! 🚀 Com estratégias personalizadas e conteúdo de arrasar, mostramos para todo mundo que, quando o assunto é iluminação, a Yamamura tem tudo!
       `,
