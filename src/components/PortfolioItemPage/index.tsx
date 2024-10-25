@@ -87,6 +87,12 @@ export const PortfolioItemPage = () => {
               Seu navegador não suporta a tag de vídeo.
             </video>
           )}
+          {item.video2 && (
+            <video controls width="100%" className={styles.video}>
+              <source src={item.video2} type="video/mp4" />
+              Seu navegador não suporta a tag de vídeo.
+            </video>
+          )}
           {item.imageUrl && <img src={item.imageUrl} alt="Peça FPG" />}
           {item.imageUrl2 && (
             <img src={item.imageUrl2} alt="Outra versão da mesma peça" />
