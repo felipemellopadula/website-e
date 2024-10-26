@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import styles from "./Header.module.scss";
-import logoImage from "../../assets/LogoUnity3DB.png";
+import logoImage from "../../assets/LogoUnity3dB.png";
 import scrolledLogoImage from "../../assets/logo3D.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 
