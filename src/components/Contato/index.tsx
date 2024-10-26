@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, ContactFormData } from "./validation";
@@ -6,47 +6,15 @@ import { Input } from "../Input";
 import styles from "./Contact.module.scss";
 
 export const Contato: React.FC = () => {
-  const [statusMessage, setStatusMessage] = useState<string | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = useCallback(async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    setStatusMessage(null);
-
-    // Mostra mensagem imediata para o usuário
-    setStatusMessage("Enviando sua mensagem...");
-
-    try {
-      const response = await fetch(
-        "https://formsubmit.co/felipe@unitycomunicacao.com",
-        {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Erro ao enviar a mensagem. Tente novamente.");
-      }
-
-      setStatusMessage("Mensagem enviada com sucesso!");
-      // Limpar os campos do formulário se desejado
-    } catch (error) {
-      setStatusMessage(error.message);
-    } finally {
-      setIsSubmitting(false);
-    }
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight);
   }, []);
 
   return (
@@ -67,10 +35,23 @@ export const Contato: React.FC = () => {
         </div>
         <div className={styles.rightColumn}>
           <form
-            onSubmit={handleSubmit(onSubmit)}
+            action="https://formsubmit.co/felipe@unitycomunicacao.com"
+            method="POST"
             className={styles.contactForm}
-            noValidate
           >
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://www.unitycomunicacao.com"
+            />
+            <input
+              type="hidden"
+              name="_subject"
+              value="Nova Mensagem de Contato - Unity Comunicação"
+            />
+
             <div className={styles.formRow}>
               <Input
                 {...register("name")}
@@ -123,12 +104,7 @@ export const Contato: React.FC = () => {
                 {errors.message.message}
               </span>
             )}
-            <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "ENVIANDO..." : "ENVIAR"}
-            </button>
-            {statusMessage && (
-              <p className={styles.statusMessage}>{statusMessage}</p>
-            )}
+            <button type="submit">ENVIAR</button>
           </form>
         </div>
       </section>
