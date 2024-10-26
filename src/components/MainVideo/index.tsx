@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import videoBgDesktop from "../../assets/video_ae02A.mp4";
 import videoBgIpad from "../../assets/video_ae_ipad.mp4";

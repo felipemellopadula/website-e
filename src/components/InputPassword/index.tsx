@@ -1,9 +1,17 @@
 import { forwardRef, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { Input } from "../Input";
+import { Input, InputProps } from "../Input";
 import styles from "./styles.module.scss";
+import { FieldError } from "react-hook-form";
 
-export const InputPassword = forwardRef(
+interface InputPasswordProps extends Omit<InputProps, "type"> {
+  label: string;
+  error?: FieldError;
+  placeholder: string;
+  className?: string;
+}
+
+export const InputPassword = forwardRef<HTMLInputElement, InputPasswordProps>(
   ({ label, error, placeholder, className, ...rest }, ref) => {
     const [isHidden, setIsHidden] = useState(true);
     const type = isHidden ? "password" : "text";
