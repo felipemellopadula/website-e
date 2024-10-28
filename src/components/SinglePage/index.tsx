@@ -1,5 +1,5 @@
 // components/Home.tsx
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { MainVideo } from "../MainVideo";
 import { Servicos } from "../Servicos";
