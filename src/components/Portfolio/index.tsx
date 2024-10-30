@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import imgItem1 from "../../assets/peca-carro01.jpg";
+import imgItem1 from "../../assets/peca-carro01-menor.webp";
 import imgItem2 from "../../assets/sierra1.jpg";
 import imgItem3 from "../../assets/amazonia.jpg";
 import imgItem4 from "../../assets/markela.jpg";
@@ -10,7 +10,7 @@ import imgItem8 from "../../assets/prado-chaves.jpg";
 import imgItem9 from "../../assets/artek.jpg";
 import imgItem10 from "../../assets/renault.jpg";
 import imgItem11 from "../../assets/center-fabril.jpg";
-import imgItem12 from "../../assets/real-green.png";
+import imgItem12 from "../../assets/real-green-menor.webp";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 

@@ -4,28 +4,28 @@ import videoBg from "../../assets/Sierra/Sierra02.mp4";
 import amazonia1 from "../../assets/Amazônia/06.jpg";
 import amazonia2 from "../../assets/Amazônia/10.jpg";
 import amazonia3 from "../../assets/Amazônia/Paris01.jpg";
-import amazonia5 from "../../assets/Amazônia/11.jpg";
-import amazonia6 from "../../assets/Amazônia/comp1.jpg";
-import amazonia7 from "../../assets/Amazônia/12.png";
-import amazonia8 from "../../assets/Amazônia/13.png";
-import markela1 from "../../assets/Markela/aqua1.png";
-import markela2 from "../../assets/Markela/aqua2.png";
-import markela4 from "../../assets/Markela/ego1.png";
-import markela5 from "../../assets/Markela/ego2.png";
-import markela6 from "../../assets/Markela/perfume1.png";
-import markela7 from "../../assets/Markela/sense1.png";
-import markela8 from "../../assets/Markela/sense2.png";
+import amazonia5 from "../../assets/Amazônia/11-menor.webp";
+import amazonia6 from "../../assets/Amazônia/comp1-menor.webp";
+import amazonia7 from "../../assets/Amazônia/12-menor.webp";
+import amazonia8 from "../../assets/Amazônia/13-menor.webp";
+import markela1 from "../../assets/Markela/aqua1-menor.webp";
+import markela2 from "../../assets/Markela/aqua2-menor.webp";
+import markela4 from "../../assets/Markela/ego1-menor.webp";
+import markela5 from "../../assets/Markela/ego2-menor.webp";
+import markela6 from "../../assets/Markela/perfume1-menor.webp";
+import markela7 from "../../assets/Markela/sense1-menor.webp";
+import markela8 from "../../assets/Markela/sense2-menor.webp";
 import yamamura1 from "../../assets/yamamura.png";
 import yamamura2 from "../../assets/Yamamura/Yamamura-revista.jpg";
 import yamamuravideo1 from "../../assets/Yamamura/Yamamura.mp4";
 import videoama from "../../assets/amawater.mp4";
-import videoTalk1 from "../../assets/Talk/Chamada-08-10.mp4";
-import talkimg1 from "../../assets/Talk/anuncio-04.png";
+import videoTalk1 from "../../assets/Talk/Chamada-08-10-menor.mp4";
+import talkimg1 from "../../assets/Talk/anuncio-04-menor.webp";
 import talkimg2 from "../../assets/Talk/anuncio-talk-golf-show-institucional-newgolf.jpg";
 import videoTalk2 from "../../assets/Talk/Vinhta-Interna-Tgs.mp4";
 import videoReal from "../../assets/real-green/real.mp4";
 import imgPrado1 from "../../assets/Prado/Anuncio-revista-prado-3.jpg";
-import imgPrado2 from "../../assets/Prado/layout-d.jpg";
+import imgPrado2 from "../../assets/Prado/layout-d-menor.webp";
 import imgPrado3 from "../../assets/Prado/website-prado.jpg";
 import imgArtek1 from "../../assets/Artek/ARTEK-folder-f.jpg";
 import imgArtek2 from "../../assets/Artek/ARTEK-folder-B.jpg";
@@ -33,7 +33,7 @@ import imgArtek3 from "../../assets/Artek/ARTEK-folder-d.jpg";
 import imgRenault1 from "../../assets/Renault/renault1.jpg";
 import imgRenault2 from "../../assets/Renault/renault2.jpg";
 import imgCenter from "../../assets/Center/center-fabril.jpg";
-import imgCenter2 from "../../assets/Center/anuncio-jornalB.jpg"
+import imgCenter2 from "../../assets/Center/anuncio-jornalB-menor.webp"
 
 
 

@@ -24,7 +24,7 @@ export const Contato: React.FC = () => {
           <h2>Estávamos esperando por você!</h2>
           <p>Queremos ouvir sua opinião! Como podemos te ajudar?</p>
           <div className={styles.contactInfo}>
-            <p>+55 11 94521 5444</p>
+            <p>+55 13 99118 8903</p>
             <p>contato@unitycomunicacao.com</p>
             <p>
               Rua Inglês de Souza, 268

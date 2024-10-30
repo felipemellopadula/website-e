@@ -1,8 +1,6 @@
 import styles from "./Agencia.module.scss";
-import agenciaImg from "../../assets/who03.jpg";
+import agenciaImg from "../../assets/who03_menor.webp";
 import { useEffect, useRef, useState } from "react";
-import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
-import videoBg from "../../assets/Comercial_ Site_ institucional_trilha_E.mp4";
 
 export const Agencia: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -22,11 +20,14 @@ export const Agencia: React.FC = () => {
   return (
     <section id="Agencia" className={styles.mainContainer}>
       <div className={styles.containerFlex}>
-        <div className={styles.video} onClick={toggleAudio}>
-          <video ref={videoRef} src={videoBg} autoPlay loop muted></video>
-          <div className={styles.audioIcon} onClick={toggleAudio}>
-            {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
-          </div>
+        <div className={styles.video}>
+          <iframe
+            className={styles.video}
+            src="https://player.vimeo.com/video/1024167037?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+            title="video"
+          ></iframe>
         </div>
         <div className={styles.contentContainer}>
           <div className={styles.item1}>
