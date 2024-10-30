@@ -9,84 +9,78 @@
     display: flex;
     flex-direction: column;
 
-    .main {
-      padding: 56.25% 0 0 0;
-      position: relative;
-      background-color: black;
-      width: 100vw;
-      height: 100vh;
+    .video {
+      position: relative; // Adicionado para posicionar o ícone corretamente
 
-      .video {
+      video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+
+      .audioIcon {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+        z-index: 10;
+        transition: color 0.3s ease; // Adiciona uma transição suave
+
+        &:hover {
+          color: rgba(255, 94, 0, 0.8); // Muda a cor ao passar o mouse
+        }
       }
     }
 
-    .audioIcon {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      color: white;
-      cursor: pointer;
-      z-index: 10;
-      transition: color 0.3s ease; // Adiciona uma transição suave
+    .contentContainer {
+      background-color: var(--mode);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 2rem;
+      font-family: var(--font-family4);
 
-      &:hover {
-        color: rgba(255, 94, 0, 0.8); // Muda a cor ao passar o mouse
+      .item1 {
+        grid-column: 1 / 2;
+
+        img {
+          width: 100%;
+        }
       }
-    }
-  }
 
-  .contentContainer {
-    background-color: var(--mode);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 2rem;
-    font-family: var(--font-family4);
-
-    .item1 {
-      grid-column: 1 / 2;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    .textBox {
-      padding-left: 3rem;
-      width: 80%;
-      justify-content: center;
-      align-items: flex-start;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-
-      h3 {
-        font-size: clamp(1.8rem, 1.743rem + 1.174vw, 2.5rem);
-        font-weight: 500;
-        color: rgb(255, 94, 0);
+      .textBox {
+        padding-left: 3rem;
+        width: 80%;
+        justify-content: center;
+        align-items: flex-start;
         display: flex;
-      }
+        flex-direction: column;
+        gap: 0.5rem;
 
-      h4 {
-        font-size: clamp(1rem, 0.839rem + 0.734vw, 1.5rem);
-        color: var(--grey-1);
-        font-weight: var(--font-weight6);
-      }
+        h3 {
+          font-size: clamp(1.8rem, 1.743rem + 1.174vw, 2.5rem);
+          font-weight: 500;
+          color: rgb(255, 94, 0);
+          display: flex;
+        }
 
-      p {
-        font-size: clamp(0.7rem, 1cqw + 1cqw, 1.5rem);
-        color: var(--grey-5);
-        line-height: 2rem;
-      }
+        h4 {
+          font-size: clamp(1rem, 0.839rem + 0.734vw, 1.5rem);
+          color: var(--grey-1);
+          font-weight: var(--font-weight6);
+        }
 
-      span {
-        font-size: clamp(1rem, 1.104rem + 0.44vw, 1.5rem);
-        color: var(--grey-1);
+        p {
+          font-size: clamp(0.7rem, 1cqw + 1cqw, 1.5rem);
+          color: var(--grey-2);
+          line-height: 2rem;
+        }
+
+        span {
+          font-size: clamp(1rem, 1.104rem + 0.44vw, 1.5rem);
+          color: var(--grey-1);
+        }
       }
     }
   }
