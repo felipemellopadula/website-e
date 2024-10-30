@@ -9,7 +9,8 @@ export const MainVideo = () => {
   const [videoSource, setVideoSource] = useState(videoBgDesktop);
   const [isAppleDevice, setIsAppleDevice] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
-  const videoRef = useRef(null);
+  // Corrigindo a tipagem do useRef
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // Função para detectar dispositivos Apple
   const checkIfAppleDevice = () => {
@@ -47,8 +48,14 @@ export const MainVideo = () => {
   // Função para iniciar o vídeo manualmente
   const handlePlayVideo = () => {
     if (videoRef.current) {
-      videoRef.current.play();
-      setShowPlayButton(false);
+      videoRef.current
+        .play()
+        .then(() => {
+          setShowPlayButton(false);
+        })
+        .catch((error) => {
+          console.error("Erro ao reproduzir vídeo:", error);
+        });
     }
   };
 
@@ -57,13 +64,7 @@ export const MainVideo = () => {
       {isAppleDevice ? (
         // Renderização para dispositivos Apple
         <>
-          <video
-            ref={videoRef}
-            src={videoSource}
-            loop
-            muted
-            playsInline // Importante para iOS
-          />
+          <video ref={videoRef} src={videoSource} loop muted playsInline />
           {showPlayButton && (
             <div className={styles.playButton} onClick={handlePlayVideo}>
               Toque para iniciar o vídeo
