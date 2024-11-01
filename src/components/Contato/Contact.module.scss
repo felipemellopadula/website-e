@@ -9,7 +9,7 @@
 }
 
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 90%;
   display: flex;
   gap: 4rem;
@@ -25,8 +25,12 @@
   }
 
   p {
-    font-size: clamp(0.8rem, 0.514rem + 0.762vw, 1.2rem);
+    font-size: clamp(1.2rem, 0.514rem + 0.762vw, 1.4rem);
     margin-bottom: 2rem;
+  }
+
+  .contato {
+    font-size: clamp(0.8rem, 0.286rem + 1.905vw, 1.5rem);
   }
 
   .contactInfo {
@@ -49,7 +53,6 @@
     gap: 2rem;
   }
 
-  input,
   textarea {
     width: 100%;
     padding: 0.8rem 0;
@@ -57,6 +60,8 @@
     border-bottom: 1px solid #ddd;
     font-size: 1rem;
     background-color: transparent;
+    height: 100px;
+    resize: none;
 
     &:focus {
       outline: none;
@@ -67,30 +72,47 @@
       color: #999;
     }
   }
+}
 
-  textarea {
-    height: 100px;
-    resize: none;
+.formInput {
+  width: 100%;
+  padding: 0.8rem 0;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  background-color: transparent;
+  transition: border-bottom-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: #000;
   }
 
-  button {
-    align-self: flex-start;
-    background-color: #000;
-    color: white;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 2rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  &::placeholder {
+    color: #999;
+  }
 
-    &:hover {
-      background-color: #ffffff;
-      color: rgb(53, 53, 53);
-      cursor: pointer;
-      transition: ease-in 0.2s;
-      border: 1px solid black;
-    }
+  &.error {
+    border-bottom-color: #ff5252;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem 0;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  background-color: transparent;
+  transition: border-bottom-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: #000;
+  }
+
+  &::placeholder {
+    color: #999;
   }
 }
 
@@ -104,6 +126,29 @@
   margin-top: 0.5rem;
 }
 
+.submitButton {
+  align-self: flex-start;
+  background-color: #000;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #ffffff;
+    color: rgb(53, 53, 53);
+    border: 1px solid black;
+  }
+}
+
 .additionalInfo {
   margin-top: 2rem;
   text-align: right;
@@ -113,21 +158,111 @@
   width: 100%;
 }
 
+// Estilos para o label
+.inputLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+// Animação para o foco dos inputs
+@keyframes borderAnimation {
+  from {
+    border-bottom-color: #ddd;
+  }
+  to {
+    border-bottom-color: #000;
+  }
+}
+
+// Media Queries
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
     padding: 0 1rem;
+    gap: 2rem;
   }
 
   .contactForm {
     .formRow {
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.5rem;
     }
+  }
+
+  .submitButton {
+    width: 100%;
+    text-align: center;
   }
 
   .additionalInfo {
     text-align: center;
     padding: 0 1rem;
   }
+
+  .leftColumn {
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    p {
+      font-size: clamp(1rem, 0.514rem + 0.762vw, 1.2rem);
+    }
+  }
+}
+
+// Media query para telas muito pequenas
+@media (max-width: 480px) {
+  .contactWrapper {
+    padding: 2rem 0;
+  }
+
+  .container {
+    width: 95%;
+    gap: 1.5rem;
+  }
+
+  .formInput,
+  .input {
+    font-size: 0.9rem;
+  }
+
+  .submitButton {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+// Media query para telas grandes
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+// Estilos para estados de foco e hover
+.formInput,
+.input,
+textarea {
+  &:focus {
+    animation: borderAnimation 0.3s forwards;
+  }
+}
+
+// Estilos para acessibilidade
+@media (prefers-reduced-motion: reduce) {
+  .formInput,
+  .input,
+  textarea,
+  .submitButton {
+    transition: none;
+  }
+}
+
+// Estilo para campo obrigatório
+.required::after {
+  content: "*";
+  color: #ff5252;
+  margin-left: 4px;
 }

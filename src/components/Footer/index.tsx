@@ -18,7 +18,7 @@ export const Footer = () => {
           <FontAwesomeIcon icon={faFacebookF} />
         </a>
         <a
-          href="https://www.instagram.com/unitycomunicacao9/"
+          href="https://www.instagram.com/__unitycom"
           target="_blank"
           rel="noopener noreferrer"
         >

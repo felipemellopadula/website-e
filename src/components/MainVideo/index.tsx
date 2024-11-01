@@ -1,80 +1,79 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
-import videoBgDesktop from "../../assets/video_desk.mp4";
-import videoBgIpad from "../../assets/video_ipad_menor.mp4";
+import videoBgDesktop from "../../assets/video_desk_locucao.mp4";
+import videoBgIpad from "../../assets/video_ipad_menor_audio.mp4";
 import videoBgIpadAir from "../../assets/video_ipad_air_menor.mp4";
-import videoBgMobile from "../../assets/video_mobile_menor.mp4";
+import videoBgMobile from "../../assets/video_mobile_menor_audio.mp4";
+import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 
 export const MainVideo = () => {
-  const [videoSource, setVideoSource] = useState(videoBgDesktop);
-  const [isAppleDevice, setIsAppleDevice] = useState(false);
-  const [showPlayButton, setShowPlayButton] = useState(false);
-  // Corrigindo a tipagem do useRef
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  // Função para detectar dispositivos Apple
-  const checkIfAppleDevice = () => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isIOS = /iphone|ipad|ipod|mac/.test(userAgent);
-    return isIOS;
-  };
+  const [videoSource, setVideoSource] = useState<string>(videoBgDesktop);
+  const [isMuted, setIsMuted] = useState<boolean>(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Detecta se é dispositivo Apple ao montar o componente
-    const isApple = checkIfAppleDevice();
-    setIsAppleDevice(isApple);
-    setShowPlayButton(isApple);
-
     const handleResize = () => {
       if (window.innerWidth <= 635) {
         setVideoSource(videoBgMobile);
-      } else if (window.innerWidth <= 820) {
-        setVideoSource(videoBgIpadAir);
       } else if (window.innerWidth <= 768) {
         setVideoSource(videoBgIpad);
+      } else if (window.innerWidth <= 820) {
+        setVideoSource(videoBgIpadAir);
       } else {
         setVideoSource(videoBgDesktop);
       }
     };
 
+    // Chama a função uma vez para definir o vídeo inicial
     handleResize();
     window.addEventListener("resize", handleResize);
 
+    // Limpa o listener quando o componente for desmontado
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  // Função para iniciar o vídeo manualmente
-  const handlePlayVideo = () => {
+  const handleToggleMute = () => {
     if (videoRef.current) {
-      videoRef.current
-        .play()
-        .then(() => {
-          setShowPlayButton(false);
-        })
-        .catch((error) => {
-          console.error("Erro ao reproduzir vídeo:", error);
-        });
+      const newMutedState = !isMuted;
+      setIsMuted(newMutedState);
+
+      // Se estiver desmutando, tenta iniciar a reprodução se necessário
+      if (!newMutedState) {
+        const playPromise = videoRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            console.error("Erro ao iniciar áudio:", error);
+            // Se houver erro, mantém o vídeo mudo
+            setIsMuted(true);
+          });
+        }
+      }
     }
   };
 
   return (
-    <div id="MainVideo" className={styles.main}>
-      {isAppleDevice ? (
-        // Renderização para dispositivos Apple
-        <>
-          <video ref={videoRef} src={videoSource} loop muted playsInline />
-          {showPlayButton && (
-            <div className={styles.playButton} onClick={handlePlayVideo}>
-              Toque para iniciar o vídeo
-            </div>
-          )}
-        </>
-      ) : (
-        // Renderização para outros dispositivos
-        <video src={videoSource} autoPlay loop muted />
-      )}
+    <div id="MainVideo" className={styles.main} onClick={handleToggleMute}>
+      {/* Ícone do estado atual de som */}
+      <div className={styles.icon}>
+        {isMuted ? (
+          <HiVolumeOff size={24} color="#fff" />
+        ) : (
+          <HiVolumeUp size={24} color="#fff" />
+        )}
+      </div>
+
+      {/* Elemento de vídeo */}
+      <video
+        ref={videoRef}
+        src={videoSource}
+        autoPlay
+        loop
+        muted={isMuted}
+        playsInline
+        className={styles.video}
+      />
     </div>
   );
 };
